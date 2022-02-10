@@ -1,0 +1,22 @@
+for p in range(int(input())):
+    n = int(input())
+    win_lose = input()
+    length = 2 * n
+    left_a, left_b, curr_a, curr_b, flag = n, n, 0, 0, length
+    for i in range(length):
+        if win_lose[i] == '1':
+            if i % 2 == 0:
+                curr_a += 1
+            else:
+                curr_b += 1
+        if i % 2 == 0:
+            left_a -= 1
+        else:
+            left_b -= 1
+        if curr_a > curr_b + left_b:
+            flag = i + 1
+            break
+        if curr_b > curr_a + left_a:
+            flag = i + 1
+            break
+    print(flag)
